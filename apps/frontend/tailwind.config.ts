@@ -6,7 +6,19 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        bm: {
+          ink: "var(--bm-ink)",
+          muted: "var(--bm-muted)",
+          shell: "var(--bm-shell)",
+          card: "var(--bm-card)",
+          accent: "var(--bm-accent)",
+          "accent-soft": "var(--bm-accent-soft)",
+          outline: "var(--bm-outline)"
+        }
+      }
+    }
   },
   plugins: []
 };
