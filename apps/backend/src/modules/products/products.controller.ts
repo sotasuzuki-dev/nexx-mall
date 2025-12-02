@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Post, Query } from "@nestjs/common";
 import { ProductsService } from "./products.service";
 
 @Controller("products")
@@ -8,6 +8,14 @@ export class ProductsController {
   @Get()
   findAll() {
     return this.productsService.findAll();
+  }
+
+  @Post("sync-from-rakuten")
+  async syncFromRakuten(@Query("keywords") keywords?: string) {
+    const keywordArray = keywords
+      ? keywords.split(",").map(k => k.trim())
+      : undefined;
+    return this.productsService.syncFromRakuten(keywordArray);
   }
 }
 

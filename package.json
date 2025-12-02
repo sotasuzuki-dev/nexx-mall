@@ -2,18 +2,28 @@
   "name": "nexxmall-monorepo",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@10.0.0",
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "db:migrate": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "devDependencies": {
+    "prisma": "^5.20.0",
+    "tsx": "^4.7.0",
     "turbo": "^2.2.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.20.0"
   }
 }
-
-

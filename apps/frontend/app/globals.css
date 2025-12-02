@@ -2,9 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Helvetica Neue", Arial, sans-serif;
+@layer base {
+  :root {
+    --bm-ink: #22141f;
+    --bm-muted: #7d6b7d;
+    --bm-shell: #fff8fb;
+    --bm-card: #ffffff;
+    --bm-accent: #ff6fa6;
+    --bm-accent-soft: #ffe4f0;
+    --bm-outline: #f2d1e6;
+  }
+
+  html {
+    font-family: "Zen Maru Gothic", "Hiragino Sans", "Yu Gothic", "游ゴシック体",
+      "YuGothic", "Noto Sans JP", system-ui, sans-serif;
+  }
+
+  body {
+    color: var(--bm-ink);
+  }
+}
+
+@layer components {
+  .bm-chip {
+    @apply rounded-full border border-bm-outline bg-white/80 px-3 py-1 text-[11px] font-medium text-bm-muted shadow-sm backdrop-blur;
+  }
+
+  .bm-card {
+    @apply rounded-2xl border border-bm-outline bg-bm-card p-3 shadow-[0_16px_40px_rgba(138,71,104,0.18)] transition duration-200;
+  }
+
+  .bm-card-hover {
+    @apply hover:-translate-y-1 hover:border-bm-accent hover:shadow-[0_24px_60px_rgba(255,111,166,0.4)];
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
